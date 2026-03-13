@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chinese BabyLM Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">
+        <span class="brand-text" data-en="Chinese BabyLM" data-zh="中文BabyLM">Chinese BabyLM</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#overview"  data-en="Overview"   data-zh="概述">Overview</a></li>
+        <li><a href="#tracks"    data-en="Tracks"     data-zh="赛道">Tracks</a></li>
+        <li><a href="#data"      data-en="Data"       data-zh="数据">Data</a></li>
+        <li><a href="#evaluation" data-en="Evaluation" data-zh="评测">Evaluation</a></li>
+        <li><a href="#timeline"  data-en="Timeline"   data-zh="时间表">Timeline</a></li>
+        <li><a href="#organizers" data-en="Organizers" data-zh="组织者">Organizers</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-en="Shared Task @ NLP Conference 2026" data-zh="NLP会议 2026 共享任务">Shared Task @ NLP Conference 2026</div>
+      <h1 class="hero-title"
+          data-en="Chinese BabyLM Challenge"
+          data-zh="中文BabyLM挑战赛">Chinese BabyLM Challenge</h1>
+      <p class="hero-subtitle"
+         data-en="Sample-Efficient Pretraining for Chinese Language Models"
+         data-zh="面向中文语言模型的样本高效预训练">
+        Sample-Efficient Pretraining for Chinese Language Models
+      </p>
+      <div class="hero-ctas">
+        <a href="#overview" class="cta-primary" data-en="Learn More" data-zh="了解更多">Learn More</a>
+        <a href="#timeline" class="cta-secondary" data-en="View Timeline" data-zh="查看时间表">View Timeline</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">100M</span>
+          <span class="stat-label" data-en="Words Budget" data-zh="词汇预算">Words Budget</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label" data-en="Evaluation Tracks" data-zh="评测赛道">Evaluation Tracks</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">2026</span>
+          <span class="stat-label" data-en="@ NLP Conference" data-zh="NLP Conference">@ NLP Conference</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-decoration">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+      <div class="deco-circle c3"></div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section id="overview" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Background" data-zh="背景">Background</span>
+        <h2 data-en="Overview" data-zh="概述">Overview</h2>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-text">
+          <p data-en="Over the past several years, large language models (LLMs) have achieved remarkable success, largely driven by scaling up both model parameters and training data. However, this data-hungry paradigm stands in stark contrast to human language acquisition: a typical child has been exposed to fewer than 100 million words of linguistic input by age 13, yet achieves robust linguistic competence that current LLMs struggle to match."
+             data-zh="近年来，大型语言模型（LLM）取得了显著成就，主要得益于模型参数规模和训练数据量的大幅提升。然而，这种数据密集型范式与人类语言习得形成鲜明对比：一个典型的儿童在13岁之前所接触的语言输入不足1亿词，却能获得当前LLM难以企及的强健语言能力。">
+            Over the past several years, large language models (LLMs) have achieved remarkable success, largely driven by scaling up both model parameters and training data. However, this data-hungry paradigm stands in stark contrast to human language acquisition: a typical child has been exposed to fewer than 100 million words of linguistic input by age 13, yet achieves robust linguistic competence that current LLMs struggle to match.
+          </p>
+          <p data-en="The BabyLM Challenge, first launched in 2023, has been a highly influential effort to incentivize research on sample-efficient pretraining under cognitively inspired data budgets. However, the challenge has predominantly focused on English. Chinese BabyLM is an independent shared task at NLP Conference 2026, dedicated to sample-efficient pretraining for Chinese."
+             data-zh="BabyLM挑战赛自2023年首次举办，是鼓励在认知启发的数据预算下开展样本高效预训练研究的重要推动力。然而，该挑战赛主要聚焦于英语。中文BabyLM是NLP Conference 2026的独立共享任务，专注于中文的样本高效预训练。">
+            The BabyLM Challenge, first launched in 2023, has been a highly influential effort to incentivize research on sample-efficient pretraining under cognitively inspired data budgets. However, the challenge has predominantly focused on English. Chinese BabyLM is an independent shared task at NLP Conference 2026, dedicated to sample-efficient pretraining for Chinese.
+          </p>
+          <p data-en="Chinese presents unique challenges for data-efficient language modeling: its logographic writing system, lack of explicit word boundaries, rich morphological compounding, and flexible syntactic structures make it a particularly interesting testbed for studying how well models can learn from limited data."
+             data-zh="中文为数据高效语言建模提出了独特挑战：其表意文字体系、缺乏显式词边界、丰富的形态复合以及灵活的句法结构，使其成为研究模型如何从有限数据中高效学习的极佳测试平台。">
+            Chinese presents unique challenges for data-efficient language modeling: its logographic writing system, lack of explicit word boundaries, rich morphological compounding, and flexible syntactic structures make it a particularly interesting testbed for studying how well models can learn from limited data.
+          </p>
+        </div>
+        <div class="overview-goals">
+          <h3 data-en="Our Goals" data-zh="我们的目标">Our Goals</h3>
+          <ul class="goals-list">
+            <li>
+              <span class="goal-icon">&#x1F4DA;</span>
+              <span data-en="Provide standardized resources and evaluation protocols for studying Chinese language learning under limited input, lowering the barrier to entry for pretraining research."
+                    data-zh="提供标准化资源与评测协议，用于研究有限输入下的中文语言学习，降低预训练研究的门槛。">
+                Provide standardized resources and evaluation protocols for studying Chinese language learning under limited input, lowering the barrier to entry for pretraining research.
+              </span>
+            </li>
+            <li>
+              <span class="goal-icon">&#x1F9E0;</span>
+              <span data-en="Foster a research community centered on cognitive and computational models of Chinese language acquisition, bridging NLP, linguistics, and cognitive science."
+                    data-zh="培育以中文语言习得认知与计算模型为核心的研究社区，连接自然语言处理、语言学与认知科学。">
+                Foster a research community centered on cognitive and computational models of Chinese language acquisition, bridging NLP, linguistics, and cognitive science.
+              </span>
+            </li>
+            <li>
+              <span class="goal-icon">&#x1F310;</span>
+              <span data-en="Build strong connections with the global BabyLM community to enable cross-linguistic comparison and collaboration."
+                    data-zh="与全球BabyLM社区建立紧密联系，推动跨语言比较与合作。">
+                Build strong connections with the global BabyLM community to enable cross-linguistic comparison and collaboration.
+              </span>
+            </li>
+            <li>
+              <span class="goal-icon">&#x1F30F;</span>
+              <span data-en="Lay the groundwork for non-English monolingual BabyLM challenges, demonstrating the value of dedicated language-specific shared tasks."
+                    data-zh="为非英语单语BabyLM挑战赛奠定基础，彰显专注于特定语言的共享任务的价值。">
+                Lay the groundwork for non-English monolingual BabyLM challenges, demonstrating the value of dedicated language-specific shared tasks.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks -->
+  <section id="tracks" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Competition" data-zh="竞赛">Competition</span>
+        <h2 data-en="Evaluation Tracks" data-zh="评测赛道">Evaluation Tracks</h2>
+        <p class="section-desc"
+           data-en="Chinese BabyLM features three evaluation tracks, each targeting a different dimension of Chinese linguistic competence."
+           data-zh="中文BabyLM设有三个评测赛道，分别针对中文语言能力的不同维度。">
+          Chinese BabyLM features three evaluation tracks, each targeting a different dimension of Chinese linguistic competence.
+        </p>
+      </div>
+      <div class="tracks-grid">
+        <div class="track-card">
+          <div class="track-icon-wrap t1">
+            <span class="track-icon">&#x1F4D6;</span>
+          </div>
+          <h3 data-en="NLU Track" data-zh="自然语言理解赛道">NLU Track</h3>
+          <p data-en="Models are evaluated on natural language understanding tasks drawn from CLUE benchmarks and ZhoBLiMP (a Chinese grammatical acceptability benchmark), assessing general comprehension and syntactic knowledge."
+             data-zh="利用CLUE基准测试和ZhoBLiMP（中文语法合理性基准）对模型进行自然语言理解任务评测，考察通用理解能力和句法知识。">
+            Models are evaluated on natural language understanding tasks drawn from CLUE benchmarks and ZhoBLiMP (a Chinese grammatical acceptability benchmark), assessing general comprehension and syntactic knowledge.
+          </p>
+          <div class="track-benchmarks">
+            <span class="benchmark-tag">CLUE</span>
+            <span class="benchmark-tag">ZhoBLiMP</span>
+          </div>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap t2">
+            <span class="track-icon">&#x1F9EC;</span>
+          </div>
+          <h3 data-en="Cognitive Modeling Track" data-zh="认知建模赛道">Cognitive Modeling Track</h3>
+          <p data-en="Models are evaluated using MulCogBench, measuring how well model representations align with human cognitive signals such as reading times and eye-tracking data, providing a window into the cognitive plausibility of learned representations."
+             data-zh="使用MulCogBench进行评测，衡量模型表征与人类认知信号（如阅读时间和眼动数据）的对齐程度，探究学习到的表征的认知合理性。">
+            Models are evaluated using MulCogBench, measuring how well model representations align with human cognitive signals such as reading times and eye-tracking data, providing a window into the cognitive plausibility of learned representations.
+          </p>
+          <div class="track-benchmarks">
+            <span class="benchmark-tag">MulCogBench</span>
+            <span class="benchmark-tag">Eye-tracking</span>
+          </div>
+        </div>
+        <div class="track-card">
+          <div class="track-icon-wrap t3">
+            <span class="track-icon">&#x6587;</span>
+          </div>
+          <h3 data-en="Chinese Character Track" data-zh="汉字赛道">Chinese Character Track</h3>
+          <p data-en="Models are evaluated on character-level knowledge through a Pronunciation Benchmark and an Orthography Benchmark, testing the model's grasp of the phonological and structural properties unique to the Chinese writing system."
+             data-zh="通过发音基准和字形基准对模型的字符级知识进行评测，考察模型对汉字独特音韵和结构属性的掌握程度。">
+            Models are evaluated on character-level knowledge through a Pronunciation Benchmark and an Orthography Benchmark, testing the model's grasp of the phonological and structural properties unique to the Chinese writing system.
+          </p>
+          <div class="track-benchmarks">
+            <span class="benchmark-tag" data-en="Pronunciation" data-zh="发音基准">Pronunciation</span>
+            <span class="benchmark-tag" data-en="Orthography" data-zh="字形基准">Orthography</span>
+          </div>
+        </div>
+      </div>
+      <div class="architecture-note">
+        <span class="note-icon">&#x2139;&#xFE0F;</span>
+        <p data-en="No restrictions on model architecture — Transformer encoder/decoder, encoder-decoder, state-space models, or novel designs are all welcome. No limit on training epochs."
+           data-zh="对模型架构无限制——Transformer编码器/解码器、编码器-解码器、状态空间模型或新颖设计均可。训练轮次不设上限。">
+          No restrictions on model architecture — Transformer encoder/decoder, encoder-decoder, state-space models, or novel designs are all welcome. No limit on training epochs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section id="data" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Resources" data-zh="资源">Resources</span>
+        <h2 data-en="Training Data" data-zh="训练数据">Training Data</h2>
+      </div>
+      <div class="data-layout">
+        <div class="data-main">
+          <p data-en="The organizers will provide an official training corpus of approximately 100 million Chinese words, building upon the Chinese portion of the BabyBabelLM dataset. The corpus is composed of naturalistic and developmentally relevant sources:"
+             data-zh="组织方将提供约1亿中文词的官方训练语料库，基于BabyBabelLM数据集的中文部分构建。语料库涵盖自然且符合发展规律的多类来源：">
+            The organizers will provide an official training corpus of approximately 100 million Chinese words, building upon the Chinese portion of the BabyBabelLM dataset. The corpus is composed of naturalistic and developmentally relevant sources:
+          </p>
+          <div class="source-cards">
+            <div class="source-card">
+              <div class="source-icon">&#x1F4D5;</div>
+              <div>
+                <h4 data-en="Children's Storybooks" data-zh="儿童故事书">Children's Storybooks</h4>
+                <p data-en="Naturalistic narratives from children's literature" data-zh="来自儿童文学的自然叙事文本">Naturalistic narratives from children's literature</p>
+              </div>
+            </div>
+            <div class="source-card">
+              <div class="source-icon">&#x1F5E3;&#xFE0F;</div>
+              <div>
+                <h4 data-en="Conversational Transcripts" data-zh="亲子对话转录">Conversational Transcripts</h4>
+                <p data-en="Child–adult conversational transcripts reflecting authentic language input" data-zh="反映真实语言输入的亲子对话转录文本">Child–adult conversational transcripts reflecting authentic language input</p>
+              </div>
+            </div>
+            <div class="source-card">
+              <div class="source-icon">&#x1F3AC;</div>
+              <div>
+                <h4 data-en="Movie Subtitles" data-zh="电影字幕">Movie Subtitles</h4>
+                <p data-en="Everyday spoken language from film subtitles" data-zh="来自电影字幕的日常口语文本">Everyday spoken language from film subtitles</p>
+              </div>
+            </div>
+          </div>
+          <p class="data-note" data-en="Participants may also construct their own training corpus, provided it does not exceed the 100-million-word budget."
+             data-zh="参赛者也可自行构建训练语料，但不得超过1亿词的预算。">
+            Participants may also construct their own training corpus, provided it does not exceed the 100-million-word budget.
+          </p>
+        </div>
+        <div class="data-side">
+          <div class="dataset-list">
+            <h3 data-en="Key Datasets" data-zh="主要数据集">Key Datasets</h3>
+            <div class="dataset-item">
+              <span class="dataset-dot"></span>
+              <div>
+                <strong>BabyBabelLM</strong>
+                <p data-en="Multilingual child-directed corpus" data-zh="多语言儿童导向语料库">Multilingual child-directed corpus</p>
+              </div>
+            </div>
+            <div class="dataset-item">
+              <span class="dataset-dot"></span>
+              <div>
+                <strong>CLUE</strong>
+                <p data-en="Chinese Language Understanding Evaluation" data-zh="中文语言理解评测基准">Chinese Language Understanding Evaluation</p>
+              </div>
+            </div>
+            <div class="dataset-item">
+              <span class="dataset-dot"></span>
+              <div>
+                <strong>ZhoBLiMP</strong>
+                <p data-en="Chinese grammatical acceptability benchmark" data-zh="中文语法合理性基准">Chinese grammatical acceptability benchmark</p>
+              </div>
+            </div>
+            <div class="dataset-item">
+              <span class="dataset-dot"></span>
+              <div>
+                <strong>MulCogBench</strong>
+                <p data-en="Multilingual cognitive plausibility benchmark" data-zh="多语言认知合理性基准">Multilingual cognitive plausibility benchmark</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Evaluation -->
+  <section id="evaluation" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Protocol" data-zh="流程">Protocol</span>
+        <h2 data-en="Evaluation Pipeline" data-zh="评测流程">Evaluation Pipeline</h2>
+        <p class="section-desc"
+           data-en="A two-phase evaluation protocol designed to ensure transparency and robustness of results."
+           data-zh="两阶段评测协议，旨在确保结果的透明性和鲁棒性。">
+          A two-phase evaluation protocol designed to ensure transparency and robustness of results.
+        </p>
+      </div>
+      <div class="eval-phases">
+        <div class="eval-phase">
+          <div class="phase-num">1</div>
+          <div class="phase-content">
+            <h3 data-en="Open Evaluation" data-zh="开放评测">Open Evaluation</h3>
+            <p data-en="An open-source evaluation pipeline and preliminary test data will be distributed upon release of task guidelines. Teams evaluate their models locally. A public leaderboard on Hugging Face will be available to track progress during development."
+               data-zh="任务指南发布后，将分发开源评测流程和初步测试数据。参赛队伍在本地评测模型。Hugging Face公开排行榜将供开发阶段跟踪进展。">
+              An open-source evaluation pipeline and preliminary test data will be distributed upon release of task guidelines. Teams evaluate their models locally. A public leaderboard on Hugging Face will be available to track progress during development.
+            </p>
+          </div>
+        </div>
+        <div class="eval-arrow">&#8594;</div>
+        <div class="eval-phase">
+          <div class="phase-num">2</div>
+          <div class="phase-content">
+            <h3 data-en="Hidden Evaluation" data-zh="隐藏评测">Hidden Evaluation</h3>
+            <p data-en="After the model submission deadline, the organizers will release held-out test data not previously available to participants. Teams must evaluate their final submitted models on this hidden test set and submit results."
+               data-zh="模型提交截止后，组织方将发布此前未对参赛者公开的留存测试数据。参赛队伍须在隐藏测试集上评测最终提交的模型并提交结果。">
+              After the model submission deadline, the organizers will release held-out test data not previously available to participants. Teams must evaluate their final submitted models on this hidden test set and submit results.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="eval-details">
+        <div class="eval-detail-card">
+          <h4 data-en="Final Scoring" data-zh="最终评分">Final Scoring</h4>
+          <p data-en="A team's final score is the average of Phase 1 (open) and Phase 2 (hidden) evaluation scores. This design discourages overfitting while providing meaningful development feedback."
+             data-zh="最终得分为第一阶段（开放）和第二阶段（隐藏）评测得分的平均值。该设计既能防止过拟合，又能提供有意义的开发阶段反馈。">
+            A team's final score is the average of Phase 1 (open) and Phase 2 (hidden) evaluation scores. This design discourages overfitting while providing meaningful development feedback.
+          </p>
+        </div>
+        <div class="eval-detail-card">
+          <h4 data-en="Reproducibility" data-zh="可重现性要求">Reproducibility</h4>
+          <p data-en="The top 3 teams in each track must submit full training data, all code (preprocessing, training, evaluation), and trained model weights. Organizers will independently verify results."
+             data-zh="每个赛道前3名须提交完整训练数据、全部代码（预处理、训练、评测）及训练好的模型权重。组织方将独立验证结果。">
+            The top 3 teams in each track must submit full training data, all code (preprocessing, training, evaluation), and trained model weights. Organizers will independently verify results.
+          </p>
+        </div>
+        <div class="eval-detail-card">
+          <h4 data-en="Model Submission" data-zh="模型提交">Model Submission</h4>
+          <p data-en="All final models must be uploaded to Hugging Face by the model submission deadline. Detailed instructions for model formatting and upload will be provided in the task guidelines."
+             data-zh="所有最终模型须在截止日期前上传至Hugging Face。模型格式和上传的详细说明将在任务指南中提供。">
+            All final models must be uploaded to Hugging Face by the model submission deadline. Detailed instructions for model formatting and upload will be provided in the task guidelines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Schedule" data-zh="日程">Schedule</span>
+        <h2 data-en="Timeline" data-zh="时间表">Timeline</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-date" data-en="March 20, 2026" data-zh="2026年3月20日">March 20, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Task Announcement" data-zh="任务公告">Task Announcement</h4>
+            <p data-en="Task announcement released; official website launched; registration opens."
+               data-zh="任务公告发布；官方网站上线；报名开放。">
+              Task announcement released; official website launched; registration opens.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-date" data-en="April 15, 2026" data-zh="2026年4月15日">April 15, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Guidelines & Data Release" data-zh="指南与数据发布">Guidelines &amp; Data Release</h4>
+            <p data-en="Detailed task guidelines released; training data and open evaluation tasks distributed."
+               data-zh="详细任务指南发布；训练数据和开放评测任务分发。">
+              Detailed task guidelines released; training data and open evaluation tasks distributed.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-date" data-en="April 22, 2026" data-zh="2026年4月22日">April 22, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Baselines & Leaderboard" data-zh="基线与排行榜">Baselines &amp; Leaderboard</h4>
+            <p data-en="Baseline models released; Hugging Face leaderboard goes live."
+               data-zh="基线模型发布；Hugging Face排行榜上线。">
+              Baseline models released; Hugging Face leaderboard goes live.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-date" data-en="May 25, 2026" data-zh="2026年5月25日">May 25, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Registration Deadline" data-zh="报名截止">Registration Deadline</h4>
+            <p data-en="Last day to register your team."
+               data-zh="参赛队伍报名最后截止日期。">
+              Last day to register your team.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-date" data-en="June 11, 2026" data-zh="2026年6月11日">June 11, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Model Submission Deadline" data-zh="模型提交截止">Model Submission Deadline</h4>
+            <p data-en="Model submission deadline; hidden test set and full evaluation pipeline released."
+               data-zh="模型提交截止；隐藏测试集和完整评测流程发布。">
+              Model submission deadline; hidden test set and full evaluation pipeline released.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-date" data-en="June 20, 2026" data-zh="2026年6月20日">June 20, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Results Submission" data-zh="结果提交">Results Submission</h4>
+            <p data-en="Final results on the hidden test set due."
+               data-zh="隐藏测试集最终结果提交截止。">
+              Final results on the hidden test set due.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item tl-last">
+          <div class="tl-marker tl-star"></div>
+          <div class="tl-date" data-en="June 30, 2026" data-zh="2026年6月30日">June 30, 2026</div>
+          <div class="tl-content">
+            <h4 data-en="Results Announced" data-zh="结果公布">Results Announced</h4>
+            <p data-en="Winners announced and final leaderboard published."
+               data-zh="公布获胜者，发布最终排行榜。">
+              Winners announced and final leaderboard published.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organizers -->
+  <section id="organizers" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Team" data-zh="团队">Team</span>
+        <h2 data-en="Organizers" data-zh="组织者">Organizers</h2>
+      </div>
+      <div class="organizers-grid">
+        <div class="organizer-card">
+          <div class="organizer-avatar">HH</div>
+          <h4>Hai Hu</h4>
+          <p data-en="Indiana University" data-zh="印第安纳大学">Indiana University</p>
+        </div>
+        <div class="organizer-card">
+          <div class="organizer-avatar">LH</div>
+          <h4>Linyang He</h4>
+          <p data-en="Affiliation TBD" data-zh="机构待定">Affiliation TBD</p>
+        </div>
+        <div class="organizer-card">
+          <div class="organizer-avatar">SS</div>
+          <h4>Siyuan Song</h4>
+          <p data-en="University of Texas at Austin" data-zh="德克萨斯大学奥斯汀分校">University of Texas at Austin</p>
+        </div>
+        <div class="organizer-card">
+          <div class="organizer-avatar">SW</div>
+          <h4>Shaonan Wang</h4>
+          <p data-en="Affiliation TBD" data-zh="机构待定">Affiliation TBD</p>
+        </div>
+      </div>
+      <div class="contact-block">
+        <p data-en="For questions and inquiries, please contact:" data-zh="如有问题，请联系：">For questions and inquiries, please contact:</p>
+        <a href="mailto:siyuansong@utexas.edu" class="contact-email">siyuansong@utexas.edu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span data-en="Chinese BabyLM Challenge" data-zh="中文BabyLM挑战赛">Chinese BabyLM Challenge</span>
+        </div>
+        <p class="footer-note"
+           data-en="Shared Task @ NLP Conference 2026 · Inspired by the BabyLM Challenge"
+           data-zh="NLP会议 2026 共享任务 · 受BabyLM挑战赛启发">
+          Shared Task @ NLP Conference 2026 · Inspired by the BabyLM Challenge
+        </p>
+        <div class="footer-links">
+          <a href="https://babylm.github.io/" target="_blank" rel="noopener">BabyLM Challenge</a>
+          <a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
