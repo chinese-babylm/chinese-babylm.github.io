@@ -597,8 +597,9 @@ a:hover { text-decoration: underline; }
   margin: 0 auto 14px;
   letter-spacing: 1px;
 }
-.organizer-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+.organizer-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
 .organizer-card p { color: var(--mid); font-size: 0.85rem; }
+.organizer-role { color: var(--gold) !important; font-size: 0.78rem !important; font-weight: 500; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 .contact-block {
   text-align: center;
