@@ -63,3 +63,26 @@ const observer = new IntersectionObserver(entries => {
 }, { rootMargin: '-40% 0px -55% 0px' });
 
 sections.forEach(s => observer.observe(s));
+
+// ─── Modals ───────────────────────────────────────────────────────
+function openModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.add('modal-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('modal-open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(event, id) {
+  if (event.target === event.currentTarget) closeModal(id);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.modal-open')
+      .forEach(m => closeModal(m.id));
+  }
+});

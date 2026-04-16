@@ -18,6 +18,7 @@
         <span class="brand-text" data-en="Chinese BabyLM" data-zh="中文BabyLM">Chinese BabyLM</span>
       </a>
       <ul class="nav-links">
+        <li><a href="#news"      data-en="News"       data-zh="动态">News</a></li>
         <li><a href="#overview"  data-en="Overview"   data-zh="概述">Overview</a></li>
         <li><a href="#tracks"    data-en="Tracks"     data-zh="赛道">Tracks</a></li>
         <li><a href="#data"      data-en="Data"       data-zh="数据">Data</a></li>
@@ -48,8 +49,8 @@
         Data-Efficient and Developmentally Plausible Language Models for Chinese
       </p>
       <div class="hero-ctas">
-        <a href="#overview" class="cta-primary" data-en="Learn More" data-zh="了解更多">Learn More</a>
-        <a href="#timeline" class="cta-secondary" data-en="View Timeline" data-zh="查看时间表">View Timeline</a>
+        <button onclick="openModal('modal-register')" class="cta-primary" data-en="Register Now" data-zh="立即报名">Register Now</button>
+        <a href="#overview" class="cta-secondary" data-en="Learn More" data-zh="了解更多">Learn More</a>
       </div>
 
     </div>
@@ -59,6 +60,33 @@
       <div class="deco-circle c3"></div>
     </div>
   </header>
+
+  <!-- News -->
+  <section id="news" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-en="Announcements" data-zh="公告">Announcements</span>
+        <h2 data-en="News" data-zh="动态">News</h2>
+      </div>
+      <ul class="news-list">
+        <li class="news-item">
+          <span class="news-date">Apr 15, 2026</span>
+          <p class="news-text">
+            <span data-en="Evaluation pipeline and training data are now publicly available: " data-zh="评测流程和训练数据现已公开：">Evaluation pipeline and training data are now publicly available: </span>
+            <a href="https://github.com/SiyuanSong2004/chinese-babylm-eval-pipeline" target="_blank" rel="noopener" data-en="Eval Pipeline" data-zh="评测流程">Eval Pipeline</a>
+            <span> · </span>
+            <a href="https://huggingface.co/datasets/chinese-babylm-org/babylm-zho-100M" target="_blank" rel="noopener" data-en="Training Data" data-zh="训练数据">Training Data</a>
+          </p>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Mar 25, 2026</span>
+          <p class="news-text">
+            <span data-en="Chinese BabyLM has been accepted as a shared task at " data-zh="Chinese BabyLM已被接受为">Chinese BabyLM has been accepted as a shared task at </span><a href="NLPCC_2026_URL_HERE" target="_blank" rel="noopener">NLPCC 2026</a><span data-en="." data-zh="的共享任务。">.</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Overview -->
   <section id="overview" class="section">
@@ -186,6 +214,12 @@
              data-zh="组织方将提供基于BabyBabelLM数据集中文部分构建的官方训练语料库，涵盖自然且符合发展规律的多类来源。参赛者也可自行构建训练语料，但不得超过1亿词的预算。">
             The organizers will provide an official training corpus building upon the Chinese portion of the BabyBabelLM dataset, composed of naturalistic and developmentally relevant sources. Participants may also construct their own corpus, provided it does not exceed the 100-million-word budget.
           </p>
+          <div class="resource-link-row">
+            <a href="https://huggingface.co/datasets/chinese-babylm-org/babylm-zho-100M" target="_blank" rel="noopener" class="resource-link">
+              <span class="resource-link-icon">&#x1F917;</span>
+              <span data-en="Training Data on Hugging Face" data-zh="Hugging Face 训练数据">Training Data on Hugging Face</span>
+            </a>
+          </div>
           <div class="corpus-table-wrap">
             <table class="corpus-table">
               <thead>
@@ -268,6 +302,10 @@
                data-zh="任务指南发布后，将分发开源评测流程和初步测试数据。参赛队伍在本地评测模型。Hugging Face公开排行榜将供开发阶段跟踪进展。">
               An open-source evaluation pipeline and preliminary test data will be distributed upon release of task guidelines. Teams evaluate their models locally. A public leaderboard on Hugging Face will be available to track progress during development.
             </p>
+            <a href="https://github.com/SiyuanSong2004/chinese-babylm-eval-pipeline" target="_blank" rel="noopener" class="resource-link" style="margin-top:12px;">
+              <span class="resource-link-icon">&#x1F4BB;</span>
+              <span data-en="Evaluation Pipeline on GitHub" data-zh="GitHub 评测流程">Evaluation Pipeline on GitHub</span>
+            </a>
           </div>
         </div>
         <div class="eval-arrow">&#8594;</div>
@@ -457,6 +495,10 @@
       <div class="contact-block">
         <p data-en="For questions and inquiries, please contact:" data-zh="如有问题，请联系：">For questions and inquiries, please contact:</p>
         <a href="mailto:chinese.babylm@gmail.com" class="contact-email">chinese.babylm@gmail.com</a>
+        <div class="contact-links">
+          <button onclick="openModal('modal-register')" class="contact-action-btn" data-en="Register" data-zh="立即报名">Register</button>
+          <button onclick="openModal('modal-wechat')" class="contact-action-btn contact-action-btn--wechat" data-en="WeChat Community" data-zh="微信交流群">WeChat Community</button>
+        </div>
       </div>
     </div>
   </section>
@@ -480,6 +522,35 @@
       </div>
     </div>
   </footer>
+
+  <!-- Register Modal -->
+  <div id="modal-register" class="modal-overlay" onclick="closeModalOutside(event, 'modal-register')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-register')">&times;</button>
+      <h3 class="modal-title" data-en="Register" data-zh="立即报名">Register</h3>
+      <p class="modal-desc" data-en="Choose your preferred registration platform:" data-zh="请选择报名方式：">Choose your preferred registration platform:</p>
+      <div class="modal-links">
+        <a href="https://forms.gle/bBVZmoov72dyj6eF8" target="_blank" rel="noopener" class="modal-link-btn">
+          <span class="modal-link-icon">&#x1F4DD;</span>
+          <span data-en="Google Forms" data-zh="Google 表单">Google Forms</span>
+        </a>
+        <a href="https://v.wjx.cn/vm/Q91FRt0.aspx" target="_blank" rel="noopener" class="modal-link-btn">
+          <span class="modal-link-icon">&#x1F4DD;</span>
+          <span data-en="Wenjuanxing (问卷星)" data-zh="问卷星">Wenjuanxing (问卷星)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WeChat Modal -->
+  <div id="modal-wechat" class="modal-overlay" onclick="closeModalOutside(event, 'modal-wechat')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-wechat')">&times;</button>
+      <h3 class="modal-title" data-en="WeChat Community" data-zh="微信交流群">WeChat Community</h3>
+      <img src="links&photos/siyuan-wechat.jpeg" alt="WeChat QR Code" class="modal-qr" />
+      <p class="modal-desc" data-en="Add contact and mention: 加Chinese BabyLM交流群" data-zh="添加联系人，注明加Chinese BabyLM交流群">添加联系人，注明加Chinese BabyLM交流群</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

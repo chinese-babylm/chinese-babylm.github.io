@@ -294,7 +294,7 @@ a:hover { text-decoration: underline; }
   margin-bottom: 56px;
 }
 .section-tag {
-  display: inline-block;
+  display: none;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -314,6 +314,41 @@ a:hover { text-decoration: underline; }
   color: var(--mid);
   font-size: 1.05rem;
 }
+
+/* ─── News ─────────────────────────────────────────────────────────── */
+.news-list {
+  list-style: none;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-bg);
+}
+.news-item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.news-item:last-child { border-bottom: none; }
+.news-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--red);
+  white-space: nowrap;
+  min-width: 80px;
+}
+.news-text {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.6;
+}
+.news-text a { color: var(--red); font-weight: 500; }
 
 /* ─── Overview ─────────────────────────────────────────────────────── */
 .overview-grid {
@@ -612,6 +647,144 @@ a:hover { text-decoration: underline; }
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--red);
+  display: block;
+  margin-bottom: 20px;
+}
+.contact-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.contact-action-btn {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  padding: 9px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.contact-action-btn:hover { background: var(--red-light); text-decoration: none; }
+.wechat-note {
+  font-size: 0.88rem;
+  color: var(--mid);
+  margin-top: 4px;
+}
+.resource-link-row {
+  margin-bottom: 20px;
+}
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.resource-link:hover { border-color: var(--red); background: #fff; text-decoration: none; }
+.resource-link-icon { font-size: 1rem; }
+
+/* Make hero Register Now button match cta-primary visually */
+button.cta-primary {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+button.contact-action-btn {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+.contact-action-btn--wechat {
+  background: #07C160;
+}
+.contact-action-btn--wechat:hover { background: #06a050; }
+
+/* ─── Modals ───────────────────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-overlay.modal-open { display: flex; }
+
+.modal-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.modal-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--mid);
+  line-height: 1;
+}
+.modal-close:hover { color: var(--dark); }
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+.modal-desc {
+  color: var(--mid);
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+}
+.modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--dark);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.modal-link-btn:hover { border-color: var(--red); background: #fff; text-decoration: none; }
+.modal-link-icon { font-size: 1.1rem; }
+.modal-qr {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--border);
 }
 
 /* ─── Footer ───────────────────────────────────────────────────────── */
