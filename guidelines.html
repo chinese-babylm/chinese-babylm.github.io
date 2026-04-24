@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guidelines · Chinese BabyLM Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-text" data-en="Chinese BabyLM" data-zh="中文BabyLM">Chinese BabyLM</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#news"       data-en="News"        data-zh="动态">News</a></li>
+        <li><a href="index.html#overview"   data-en="Overview"    data-zh="概述">Overview</a></li>
+        <li><a href="index.html#tracks"     data-en="Tracks"      data-zh="赛道">Tracks</a></li>
+        <li><a href="index.html#data"       data-en="Data"        data-zh="数据">Data</a></li>
+        <li><a href="guidelines.html" class="active" data-en="Guidelines" data-zh="指南">Guidelines</a></li>
+        <li><a href="index.html#timeline"   data-en="Timeline"    data-zh="时间表">Timeline</a></li>
+        <li><a href="index.html#organizers" data-en="Organizers"  data-zh="组织者">Organizers</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </nav>
+
+  <article class="doc">
+
+    <header class="doc-header">
+      <h1 data-en="Participation Guidelines" data-zh="参赛指南">Participation Guidelines</h1>
+      <p class="doc-intro"
+         data-en="Rules for model training, data usage, evaluation, and submission."
+         data-zh="关于模型训练、数据使用、评测和提交的规则。">
+        Rules for model training, data usage, evaluation, and submission.
+      </p>
+    </header>
+
+    <h2 data-en="Tracks" data-zh="赛道">Tracks</h2>
+    <p data-en="Each team submits a single model. The three tracks differ only in which evaluation tasks are run against that model — unlike the English BabyLM Challenge, there are no separate training-setting requirements per track."
+       data-zh="每支队伍只需提交一个模型。三个赛道仅在运行的评测任务上有所不同——不像英文 BabyLM 那样对训练设置有不同要求。">
+      Each team submits a single model. The three tracks differ only in which evaluation tasks are run against that model — unlike the English BabyLM Challenge, there are no separate training-setting requirements per track.
+    </p>
+    <ul>
+      <li>
+        <strong data-en="NLU Track." data-zh="NLU 赛道。">NLU Track.</strong>
+        <span data-en=" CLUE fine-tuning (AFQMC, OCNLI, TNEWS, CLUEWSC2020) and zero-shot minimal pair scoring on ZhoBLiMP."
+              data-zh=" 包括 CLUE 微调任务（AFQMC、OCNLI、TNEWS、CLUEWSC2020）和 ZhoBLiMP 零样本最小对评分。"> CLUE fine-tuning (AFQMC, OCNLI, TNEWS, CLUEWSC2020) and zero-shot minimal pair scoring on ZhoBLiMP.</span>
+      </li>
+      <li>
+        <strong data-en="Cognitive Modeling Track." data-zh="认知建模赛道。">Cognitive Modeling Track.</strong>
+        <span data-en=" MulCogBench: fit model representations to human fMRI brain recordings via ridge regression, at word and sentence levels."
+              data-zh=" 使用 MulCogBench，通过岭回归将模型表征在词级和句子级上拟合到人脑 fMRI 记录。"> MulCogBench: fit model representations to human fMRI brain recordings via ridge regression, at word and sentence levels.</span>
+      </li>
+      <li>
+        <span data-en="" data-zh=""></span><strong data-en="HANZI Track." data-zh="汉字赛道。">HANZI Track.</strong>
+        <span data-en=" Character-level minimal pairs via "
+              data-zh=" 通过 "> Character-level minimal pairs via </span><a href="https://huggingface.co/datasets/chinese-babylm-org/hanzi-pinyin" target="_blank" rel="noopener">PinyinBench</a><span data-en=" and " data-zh=" 和 "> and </span><a href="https://huggingface.co/datasets/chinese-babylm-org/hanzi-structure" target="_blank" rel="noopener">HanziBench</a><span data-en=", targeting phonological and structural properties of Chinese characters."
+              data-zh=" 进行字符级最小对评测，考察汉字的音韵和结构属性。">, targeting phonological and structural properties of Chinese characters.</span>
+      </li>
+    </ul>
+    <p data-en="The overall score is the total across all evaluation tasks (both open and hidden). Per-track scores are the total within that track's tasks."
+       data-zh="总成绩为所有评测任务（公开与隐藏）得分的总分；各赛道成绩为该赛道下所有任务得分的总分。">
+      The overall score is the total across all evaluation tasks (both open and hidden). Per-track scores are the total within that track's tasks.
+    </p>
+
+    <h2 data-en="Pretraining Data" data-zh="预训练数据">Pretraining Data</h2>
+    <ol>
+      <li>
+        <strong data-en="Pretrain from scratch." data-zh="从零开始预训练。">Pretrain from scratch.</strong>
+        <span data-en=" Models must be trained from randomly initialized weights. Loading pretrained checkpoints or distilling from existing large models is not allowed."
+              data-zh=" 模型必须从随机初始化开始训练。不允许加载任何已有预训练权重，也不允许从现有大模型中蒸馏。"> Models must be trained from randomly initialized weights. Loading pretrained checkpoints or distilling from existing large models is not allowed.</span>
+      </li>
+      <li>
+        <strong data-en="Choose one of two data options:" data-zh="从以下两种数据方案中选择其一：">Choose one of two data options:</strong>
+        <ul>
+          <li>
+            <strong data-en="Option 1 — Official corpus." data-zh="方案一——官方数据集。">Option 1 — Official corpus.</strong>
+            <span data-en=" Use the organizer-provided 102M-word training corpus on Hugging Face: "
+                  data-zh=" 使用主办方提供的 102M 词训练语料，可在 Hugging Face 直接加载："> Use the organizer-provided 102M-word training corpus on Hugging Face: </span><a href="https://huggingface.co/datasets/chinese-babylm-org/babylm-zho-100M" target="_blank" rel="noopener">chinese-babylm-org/babylm-zho-100M</a><span data-en="." data-zh="。">.</span>
+          </li>
+          <li>
+            <strong data-en="Option 2 — Bring your own corpus." data-zh="方案二——自备数据集。">Option 2 — Bring your own corpus.</strong>
+            <span data-en=" At most 102M words counted via Jieba 0.42.1 in default mode; see the "
+                  data-zh=" 不超过 102M 词（以 Jieba 0.42.1 默认模式分词为准），详见 "> At most 102M words counted via Jieba 0.42.1 in default mode; see the </span><a href="https://github.com/SiyuanSong2004/chinese-babylm-eval-pipeline#token-count" target="_blank" rel="noopener" data-en="evaluation pipeline's Token Count section" data-zh="评测流水线 Token 计数章节">evaluation pipeline's Token Count section</a><span data-en=" for counting rules." data-zh="。"> for counting rules.</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong data-en="No evaluation leakage." data-zh="禁止评测数据泄漏。">No evaluation leakage.</strong>
+        <span data-en=" Fine-tuning, validation, or test splits from any track's evaluation datasets must not appear in your pretraining corpus."
+              data-zh=" 任何赛道的微调、验证或测试数据均不得出现在预训练语料中。"> Fine-tuning, validation, or test splits from any track's evaluation datasets must not appear in your pretraining corpus.</span>
+      </li>
+      <li>
+        <strong data-en="Reproducibility for winners." data-zh="冠军需可复现。">Reproducibility for winners.</strong>
+        <span data-en=" Each track's first-place team and the overall first-place team must submit their full training data (if Option 2) and complete training code. Organizers will reproduce the pipeline to verify results."
+              data-zh=" 各赛道冠军及总冠军须提交完整训练数据（若选择方案二）及全部训练代码。主办方将独立复现以核验成绩。"> Each track's first-place team and the overall first-place team must submit their full training data (if Option 2) and complete training code. Organizers will reproduce the pipeline to verify results.</span>
+      </li>
+    </ol>
+
+    <h2 data-en="Evaluation" data-zh="评测">Evaluation</h2>
+    <p data-en="Evaluation follows a two-phase protocol: an open phase during development and a hidden phase on held-out tasks released after model submission."
+       data-zh="评测采用两阶段协议：开发期间运行开放评测，模型提交后运行隐藏评测。">
+      Evaluation follows a two-phase protocol: an open phase during development and a hidden phase on held-out tasks released after model submission.
+    </p>
+
+    <h3 data-en="Open Evaluation Tasks" data-zh="开放评测任务">Open Evaluation Tasks</h3>
+    <p data-en="Released alongside the guidelines on April 15, 2026. Teams run the open-source evaluation pipeline locally and may report scores to the public Hugging Face leaderboard during development. Open tasks are fully visible — training data must not include them."
+       data-zh="开放评测任务已于 2026 年 4 月 15 日随指南一起发布。参赛者本地使用开源评测流水线运行模型，可在开发期间将成绩提交至公开的 Hugging Face 排行榜。开放任务完全公开——训练数据不得包含这些评测样本。">
+      Released alongside the guidelines on April 15, 2026. Teams run the open-source evaluation pipeline locally and may report scores to the public Hugging Face leaderboard during development. Open tasks are fully visible — training data must not include them.
+    </p>
+
+    <h3 data-en="Hidden Evaluation Tasks" data-zh="隐藏评测任务">Hidden Evaluation Tasks</h3>
+    <p data-en="Released after the model submission deadline (June 11, 2026). Teams evaluate their already-submitted, frozen models on the held-out test set and submit results by June 20, 2026. Hidden tasks test generalization beyond the open set."
+       data-zh="隐藏评测任务将在模型提交截止（2026 年 6 月 11 日）后发布。参赛者须在已提交并冻结的模型上运行隐藏测试集，并于 2026 年 6 月 20 日前提交结果。隐藏任务用于检验模型在开放评测之外的泛化能力。">
+      Released after the model submission deadline (June 11, 2026). Teams evaluate their already-submitted, frozen models on the held-out test set and submit results by June 20, 2026. Hidden tasks test generalization beyond the open set.
+    </p>
+
+    <h3 data-en="Model Submission" data-zh="模型提交">Model Submission</h3>
+    <p data-en="All final models must be uploaded to Hugging Face as public repositories by June 11, 2026. No modifications to weights are permitted after this deadline — hidden evaluation uses exactly the submitted checkpoint."
+       data-zh="所有最终模型须在 2026 年 6 月 11 日前以公开仓库形式上传至 Hugging Face。此后不得修改权重——隐藏评测使用与提交完全一致的检查点。">
+      All final models must be uploaded to Hugging Face as public repositories by June 11, 2026. No modifications to weights are permitted after this deadline — hidden evaluation uses exactly the submitted checkpoint.
+    </p>
+
+    <h3 data-en="Final Scoring" data-zh="最终评分">Final Scoring</h3>
+    <p data-en="A team's final score is the total across all open and hidden evaluation tasks. Per-track winners are decided by the total within that track; the overall winner is decided by the total across all tasks across all tracks."
+       data-zh="最终得分为所有公开和隐藏评测任务的总分。各赛道冠军依据该赛道所有任务的总分决定；总冠军依据所有赛道全部任务的总分决定。">
+      A team's final score is the total across all open and hidden evaluation tasks. Per-track winners are decided by the total within that track; the overall winner is decided by the total across all tasks across all tracks.
+    </p>
+
+    <h2 data-en="Ways to Improve Your Score" data-zh="提升成绩的思路">Ways to Improve Your Score</h2>
+    <p data-en="The following are suggestions, not requirements. Participants are free to explore other approaches within the data budget."
+       data-zh="以下仅为建议，并非硬性要求。参赛者可在数据预算范围内自由探索其他方法。">
+      The following are suggestions, not requirements. Participants are free to explore other approaches within the data budget.
+    </p>
+    <ul>
+      <li>
+        <strong data-en="Data strategy:" data-zh="数据策略：">Data strategy:</strong>
+        <span data-en=" improve corpus quality (filtering, deduplication), adjust training epochs, or experiment with training order / curriculum."
+              data-zh=" 提升语料质量（过滤、去重），调整训练轮数，或尝试训练顺序 / 课程学习。"> improve corpus quality (filtering, deduplication), adjust training epochs, or experiment with training order / curriculum.</span>
+      </li>
+      <li>
+        <strong data-en="Model architecture:" data-zh="模型架构：">Model architecture:</strong>
+        <span data-en=" try Transformer encoders, decoders, encoder-decoders, Mamba / state-space models, or Diffusion Language Models."
+              data-zh=" 尝试 Transformer 编码器、解码器、编码器-解码器、Mamba / 状态空间模型，或扩散语言模型。"> try Transformer encoders, decoders, encoder-decoders, Mamba / state-space models, or Diffusion Language Models.</span>
+      </li>
+      <li>
+        <strong data-en="Training method:" data-zh="训练方法：">Training method:</strong>
+        <span data-en=" explore reinforcement learning, preference optimization, multi-stage pretraining, and other advanced techniques."
+              data-zh=" 探索强化学习、偏好优化、多阶段预训练等高级技术。"> explore reinforcement learning, preference optimization, multi-stage pretraining, and other advanced techniques.</span>
+      </li>
+      <li>
+        <strong data-en="Cognitive track tuning:" data-zh="认知赛道调优：">Cognitive track tuning:</strong>
+        <span data-en=" the choice of layer and feature extraction strategy (e.g., mean pooling, specific hidden layers) can substantially affect fMRI alignment."
+              data-zh=" 隐藏层的选择与特征提取方式（例如平均池化、特定层的表征）对 fMRI 对齐成绩有显著影响。"> the choice of layer and feature extraction strategy (e.g., mean pooling, specific hidden layers) can substantially affect fMRI alignment.</span>
+      </li>
+      <li>
+        <strong data-en="Learn from English BabyLM:" data-zh="参考英文 BabyLM：">Learn from English BabyLM:</strong>
+        <span data-en=" recent winning approaches are a valuable source of ideas — see "
+              data-zh=" 英文 BabyLM 挑战赛近年的获胜方案提供了丰富的参考思路，详见 "> recent winning approaches are a valuable source of ideas — see </span><a href="https://babylm.github.io/index.html" target="_blank" rel="noopener">babylm.github.io</a><span data-en="." data-zh="。">.</span>
+      </li>
+    </ul>
+
+    <h2 data-en="Paper Submissions" data-zh="论文提交">Paper Submissions</h2>
+    <p data-en="Chinese BabyLM is a shared task and does not currently offer an archival paper track. We encourage participants to document their systems and findings in the following ways:"
+       data-zh="Chinese BabyLM 为共享任务，目前暂不提供归档论文投稿渠道。我们鼓励参赛者以下列方式发表系统与发现：">
+      Chinese BabyLM is a shared task and does not currently offer an archival paper track. We encourage participants to document their systems and findings in the following ways:
+    </p>
+    <ul>
+      <li data-en="Release a technical report or findings paper on arXiv."
+          data-zh="将技术报告或 findings 论文发布到 arXiv。">
+        Release a technical report or findings paper on arXiv.
+      </li>
+      <li>
+        <span data-en="Submit to related venues such as the "
+              data-zh="投稿到相关会议或 workshop，例如 ">Submit to related venues such as the </span><a href="https://babylm.github.io/" target="_blank" rel="noopener" data-en="BabyLM Workshop @ EMNLP 2026" data-zh="BabyLM Workshop @ EMNLP 2026">BabyLM Workshop @ EMNLP 2026</a><span data-en="." data-zh="。">.</span>
+      </li>
+    </ul>
+
+    <h2 data-en="Awards" data-zh="奖项">Awards</h2>
+    <p data-en="To be determined. Details will be announced once finalized with NLPCC officials and sponsors."
+       data-zh="奖项细节待定，主办方将在与 NLPCC 官方及赞助商确认后公布。">
+      To be determined. Details will be announced once finalized with NLPCC officials and sponsors.
+    </p>
+
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span data-en="Chinese BabyLM Challenge" data-zh="中文BabyLM挑战赛">Chinese BabyLM Challenge</span>
+        </div>
+        <p class="footer-note"
+           data-en="Shared Task @ NLPCC 2026 · Inspired by the BabyLM Challenge"
+           data-zh="NLPCC 2026 共享任务 · 受BabyLM挑战赛启发">
+          Shared Task @ NLPCC 2026 · Inspired by the BabyLM Challenge
+        </p>
+        <div class="footer-links">
+          <a href="https://babylm.github.io/" target="_blank" rel="noopener">BabyLM Challenge</a>
+          <a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

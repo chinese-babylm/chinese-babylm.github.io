@@ -838,3 +838,67 @@ button.contact-action-btn {
   .hero-ctas { flex-direction: column; align-items: center; }
   .cta-primary, .cta-secondary { width: 100%; max-width: 260px; text-align: center; }
 }
+
+/* ─── Guidelines page (doc style) ────────────────────────────────── */
+
+.nav-links a.active { color: var(--red); font-weight: 600; }
+
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 48px) 24px 80px;
+  color: var(--dark);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.doc-header {
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.doc-header h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.doc-header .doc-intro {
+  color: var(--mid);
+  font-size: 1.02rem;
+}
+
+.doc h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-top: 48px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.doc h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--red);
+  margin-top: 28px;
+  margin-bottom: 8px;
+}
+
+.doc p { margin-bottom: 14px; }
+.doc ul, .doc ol { margin: 8px 0 18px 1.4em; }
+.doc ul li, .doc ol li { margin-bottom: 8px; }
+.doc ul ul, .doc ol ul, .doc ol ol { margin-top: 8px; }
+.doc li strong { color: var(--dark); }
+.doc a { color: var(--red); }
+.doc a:hover { text-decoration: underline; }
+
+.doc-note {
+  margin: 20px 0;
+  padding: 12px 16px;
+  background: rgba(201,168,76,0.08);
+  border-left: 3px solid var(--gold);
+  color: var(--dark);
+  font-size: 0.98rem;
+}
